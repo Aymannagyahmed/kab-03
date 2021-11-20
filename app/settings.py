@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-_3)n!2k(t5r+56#2u!!z&&u1xxrwvfnofd5ox#turm-3%1(8y1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['itit.com', '0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -67,12 +67,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iti',
-        'USER': 'iti',
-        'PASSWORD': 'iti',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'lab03_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
-        'PORT': 5432
+        'PORT': '5432',
     }
 }
 
