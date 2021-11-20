@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        TODO INDEX
+        {%endblock%}
+    </title>
+
+    <link href="{% static 'main/assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Will evaluate to  ->   localhost:8000/static/assets/css/bootstrap.min.css-->
+    <script src="{% static 'main/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+</head>
+<body>
+{% include 'main/header.html' %}
+
+
+
+<br/>
+
+{% block main-content %}
+<li> You need to override block main-content</li>
+{% endblock %}
+
+<br/>
+
+{% include 'main/footer.html' %}
+</body>
+</html>

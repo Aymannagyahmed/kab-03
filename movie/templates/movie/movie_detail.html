@@ -1,0 +1,44 @@
+{% extends 'main/base_layout.html' %}
+{% block main-content %}
+<div class="container">
+    <div class="row">
+        <div class="text-center col-12">
+
+            <div class="card">
+                <img src="{{movie.poster.url}}" alt="Image" style="max-width:15%;max-height:50%">
+                <img src="{{movie.video.url}}" alt="Image" style="max-width:15%;max-height:50%">
+                <div class="card-title">{{movie.name}}</div>
+                <div>{{movie.description}}</div>
+                <div>{{movie.likes}}</div>
+                <div>{{movie.watch_count}}</div>
+                <div>
+                    <ul>
+                        {% for actor in movie.actors.all %}
+                            <li>{{actor.first_name}}  -> {{actor.id_name}}</li>
+                            {% if actor.profile_image %}  <img src="{{actor.profile_image.url}}"> {% endif %}
+                        {% endfor %}
+                    </ul>
+
+                </div>
+                <hr/>
+                <div>
+                    <ul>
+                        {% for review in movie.review_set.all %}
+                            <li>{{review.comment}}</li>
+                            {% if review.attachment %}
+                            <img src="{{review.attachment.url}}" />
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

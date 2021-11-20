@@ -1,0 +1,40 @@
+{% extends 'main/base_layout.html' %}
+{% load my_custom_tags %}
+{% block main-content %}
+
+{% my_simple_tag user  as my_var %}
+
+{{my_var}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>Movie</td>
+        <td>Desc</td>
+        <td>Likes</td>
+        <td>Watches</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for movie in movies %}
+
+    <tr>
+        <td>{{movie}}</td>
+        <td>{{movie.description}}</td>
+        <td>{{movie.likes}}</td>
+        <td>{{movie.watch_count}}</td>
+        <td>
+            <a href="{% url 'movie:movie-detail' movie.id %}" class="btn btn-info"> View</a>
+            <a href="{% url 'movie:movie-update' movie.id %}" class="btn btn-warning"> Update</a>
+            <a href="{% url 'movie:movie-delete' movie.id %}" class="btn btn-danger"> Delete</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

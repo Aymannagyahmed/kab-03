@@ -1,0 +1,45 @@
+{% extends 'main/base_layout.html' %}
+{% block main-content %}
+<div class="container">
+    <div class="row">
+        <div class="text-center col-12">
+
+            <form method="post" action="{% url 'movie:movie-create' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                {% comment %}
+                <div class="form-group">
+                    <label for="MovieName">MovieName</label>
+                    <input type="text" name="name" class="form-control" id="MovieName" placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <label for="MovieDesc"> Description</label>
+                    <input type="text" name="desc" class="form-control" id="MovieDesc" placeholder="Enter Description">
+                </div>
+
+                <div class="form-group">
+                    <label for="MovieLikes"> Like</label>
+                    <input type="number" name="likes" class="form-control" id="MovieLikes"
+                           placeholder="Enter Priority">
+                </div>
+
+                {% endcomment %}
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="text-center mt-5" style="display:inline">
+                    <a href="{% url 'movie:movie-index'%}">
+                        <button type="button" class="btn btn-info">
+                            Back to Movie Index
+                        </button>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
